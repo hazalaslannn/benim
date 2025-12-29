@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<title>Yeni Yılım Sensin ❤️</title>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background: url('resimm.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    color: white;
+    flex-direction: column;
+}
+
+/* Giriş ekranı degrade ve parlak efektli */
+#welcome {
+    
+    padding: 40px;
+    border-radius: 28px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    text-align: center;
+    color: #fff;
+}
+
+#welcome h1 { font-size: 42px; text-shadow: 0 0 12px #000; }
+#welcome p { font-size: 20px; opacity: 0.95; text-shadow: 0 0 8px #000; }
+
+.screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+#ledTree {
+    margin: 30px 0;
+    width: 120px;
+    height: 165px;
+    position: relative;
+}
+
+.led {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+    opacity: 0.7;
+    box-shadow: 0 0 6px #000;
+}
+
+.led:nth-child(1) { background-color: #ff3d68; animation-delay: 0s; box-shadow: 0 0 12px #ff3d68; }
+.led:nth-child(2) { background-color: #ffd166; animation-delay: 0.2s; box-shadow: 0 0 12px #ffd166; }
+.led:nth-child(3) { background-color: #6a4c93; animation-delay: 0.4s; box-shadow: 0 0 12px #6a4c93; }
+.led:nth-child(4) { background-color: #6bcf6b; animation-delay: 0.6s; box-shadow: 0 0 12px #6bcf6b; }
+.led:nth-child(5) { background-color: #ff9f1c; animation-delay: 0.8s; box-shadow: 0 0 12px #ff9f1c; }
+.led:nth-child(6) { background-color: #3dffa4; animation-delay: 1s; box-shadow: 0 0 12px #ff3d68; }
+.led:nth-child(7) { background-color: #ff3d68; animation-delay: 0s; box-shadow: 0 0 12px #ff3d68; }
+.led:nth-child(8) { background-color: #ffd166; animation-delay: 0.2s; box-shadow: 0 0 12px #ffd166; }
+.led:nth-child(9) { background-color: #6a4c93; animation-delay: 0.4s; box-shadow: 0 0 12px #6a4c93; }
+.led:nth-child(10) { background-color: #6bcf6b; animation-delay: 0.6s; box-shadow: 0 0 12px #6bcf6b; }
+.led:nth-child(11) { background-color: #ff9f1c; animation-delay: 0.8s; box-shadow: 0 0 12px #ff9f1c; }
+.led:nth-child(12) { background-color: #3dffa4; animation-delay: 1s; box-shadow: 0 0 12px #ff3d68; }
+.led:nth-child(13) { background-color: #ff3d68; animation-delay: 0s; box-shadow: 0 0 12px #ff3d68; }
+.led:nth-child(14) { background-color: #ffd166; animation-delay: 0.2s; box-shadow: 0 0 12px #ffd166; }
+.led:nth-child(15) { background-color: #6a4c93; animation-delay: 0.4s; box-shadow: 0 0 12px #6a4c93; }
+
+
+@keyframes blink {
+    0%,100% { opacity: 0.6; }
+    50% { opacity: 1; box-shadow: 0 0 18px currentColor; }
+}
+
+button {
+    margin-top: 30px;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #7a2121, #c44444);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 10;
+    text-shadow: 0 0 6px rgba(0,0,0,0.6);
+}
+button:hover { transform: scale(1.08); }
+
+#message { opacity: 0; transform: scale(0.9); }
+
+.card {
+    background: rgba(0,0,0,0.6);
+    padding: 30px;
+    border-radius: 28px;
+    max-width: 460px;
+    max-height: 70vh;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.45);
+    overflow-y: auto;
+    color: #fff;
+}
+.card p {
+    font-size: 18px;
+    line-height: 1.8;
+    text-shadow: 0 0 6px rgba(0,0,0,0.8);
+}
+.card img {
+    width: 100%;
+    border-radius: 18px;
+    margin-bottom: 18px;
+}
+
+.heart {
+    font-size: 46px;
+    margin-top: 22px;
+    animation: beat 1.5s infinite;
+    cursor: pointer;
+}
+@keyframes beat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.3); } }
+
+#secret {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.25);
+    font-size: 17px;
+    display: none;
+    min-height: 80px;
+    color: #000;
+}
+
+.firework {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: explode 1.2s ease-out forwards;
+}
+@keyframes explode {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(20); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+
+<audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/24/audio_6d7d0a6fc3.mp3?filename=sweet-piano-11019.mp3" type="audio/mpeg" />
+    
+</audio>
+
+<div id="welcome" class="screen">
+    <h1>🎄 Mutlu Yıllar Sevgilimm🎄</h1>
+    <p>Beraber Geçireceğimiz Nice Yıllarımız Olsun...</p>
+    <div id="ledTree"></div>
+    <button id="startBtn">Ama sana bir şey söylemem lazım ❤️</button>
+</div>
+
+<div id="message" class="screen">
+    <div class="card">
+        <img src="resim.png" alt="Biz" />
+        <p>Bunu sana belki daha önce<br>bu kadar açık söylemedim…</p>
+        <p>Bir oyunda başlayan küçük bir an,<br>fark etmeden hayatımın<br>en gerçek duygusuna dönüştü.<br>Seni tanımak değil,<br>seni sevmek oldu hikâyem.</p>
+        <p>Mesafe bazen zor…<br>Ama kalbim hiç tereddüt etmedi.<br>Her gün seni seçti.<br>Her gün biraz daha sana bağlandı.</p>
+        <p>Özlemek zor,<br>beklemek yorucu…<br>Ama seni sevmek<br>bana hep doğru geliyor.</p>
+        <p>Yeni yılda da;<br>kalbimi sana açmaya,<br>seni sevmekten korkmamaya<br>ve bir gün bu cümleleri<br>gözlerinin içine bakarak<br>söyleyeceğim ana inanmaya devam edeceğim.</p>
+        <p>Çünkü seni seviyorum…<br>Ve bu, yeni yılımın<br>en güzel gerçeği ❤️</p>
+        <div class="heart" id="heart">💖</div>
+        <button id="revealSecret">Sana özel bir mesaj</button>
+        <div id="secret"></div>
+    </div>
+</div>
+
+<script>
+function createLedTree() {
+    const ledTree = document.getElementById('ledTree');
+    ledTree.innerHTML = '';
+    const positions = [
+        [ {x: 50, y: 0} ],
+        [ {x: 35, y: 30}, {x: 65, y: 30} ],
+        [ {x: 20, y: 60}, {x: 50, y: 60}, {x: 80, y: 60} ],
+        [ {x: 10, y: 90}, {x: 35, y: 90}, {x: 65, y: 90}, {x: 90, y: 90} ],
+        [ {x: 0, y: 120}, {x: 25, y: 120}, {x: 50, y: 120}, {x: 75, y: 120}, {x: 100, y: 120} ],
+    ];
+    positions.forEach(row => {
+        row.forEach(pos => {
+            const led = document.createElement('div');
+            led.classList.add('led');
+            led.style.left = pos.x + 'px';
+            led.style.top = pos.y + 'px';
+            ledTree.appendChild(led);
+        });
+    });
+    const trunk = document.createElement('div');
+    trunk.style.position = 'absolute';
+    trunk.style.width = '20px';
+    trunk.style.height = '25px';
+    trunk.style.backgroundColor = '#5a2e00';
+    trunk.style.left = '50px';
+    trunk.style.top = '140px';
+    trunk.style.borderRadius = '4px';
+    ledTree.appendChild(trunk);
+}
+
+window.addEventListener('load', createLedTree);
+
+document.getElementById("startBtn").addEventListener("click", () => {
+    fireworks();
+    const audio = document.getElementById("bgMusic");
+    audio.play().catch(() => {
+        document.body.addEventListener("click", () => audio.play(), { once: true });
+    });
+    const welcome = document.getElementById("welcome");
+    const message = document.getElementById("message");
+    welcome.style.opacity = "0";
+    welcome.style.transform = "scale(1.1)";
+    setTimeout(() => {
+        welcome.style.display = "none";
+        message.style.opacity = "1";
+        message.style.transform = "scale(1)";
+    }, 1200);
+});
+
+function fireworks() {
+    for (let i = 0; i < 15; i++) {
+        setTimeout(() => {
+            const fw = document.createElement("div");
+            fw.className = "firework";
+            fw.style.left = Math.random() * 100 + "vw";
+            fw.style.top = Math.random() * 50 + "vh";
+            fw.style.boxShadow = `
+                0 -20px #fff,
+                14px -14px #ff9aa2,
+                20px 0 #ffd166,
+                14px 14px #cdb4db,
+                0 20px #a0c4ff,
+                -14px 14px #ffc8dd,
+                -20px 0 #ffafcc,
+                -14px -14px #bde0fe
+            `;
+            document.body.appendChild(fw);
+            setTimeout(() => fw.remove(), 1200);
+        }, i * 120);
+    }
+}
+
+const secretLines = [
+    "Bunu sadece sen duy diye sakladım…",
+    "Sana her “iyi geceler” dediğimde,",
+    "aslında şunu demek istiyorum:",
+    "Hayatımda olmanı istiyorum.",
+    "Sadece bugün değil 🤍"
+];
+
+document.getElementById("revealSecret").addEventListener("click", () => {
+    const secretDiv = document.getElementById("secret");
+    secretDiv.style.display = "block";
+    secretDiv.innerHTML = "";
+    let i = 0;
+    function showLine() {
+        if (i < secretLines.length) {
+            secretDiv.innerHTML += secretLines[i] + "<br>";
+            i++;
+            setTimeout(showLine, 800);
+        }
+    }
+    showLine();
+});
+</script>
+
+</body>
+</html>
